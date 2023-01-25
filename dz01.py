@@ -1,0 +1,6 @@
+count = int(input('Количество символов: '))
+sym = input('Тип символа: ')
+print('0 - горизонтальная')
+print('1 - вертикальная')
+orient = int(input('ориентация линии: '))
+print((sym + '\n' * orient) * count)
