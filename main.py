@@ -910,12 +910,32 @@
 
 # from functools import reduce
 #
-# d = {'c': 3, 'a': 1, 'b': 2, 'd': 4}
 #
 # w = reduce(lambda s, i: False or s.update({i[0]: i[1]}) if len(s) <= 2 else s, d.items(), {})
 #
 # print(w)
 #
 
-a = 5
-print(a)
+# Вывести из словаря первые 2 элемента
+
+d = {'c': 3, 'a': 1, 'b': 2, 'd': 4}
+
+# Вариант 1
+# v = {l[0]: l[1] for k, l in enumerate(d.items()) if k < 2}
+
+# Вариант 2
+# x = d.keys().__iter__()
+# y = d.values().__iter__()
+# v = {x.__next__(): y.__next__() for i in range(2)}
+
+# Вариант 3
+# v = {}
+# x = d.items().__iter__()
+# for i in range(2):
+#     v.update({*[x.__next__()]})
+
+# Вариант 4
+x = d.items().__iter__()
+v = dict(map(lambda i: x.__next__(), range(2)))
+
+print(v)
