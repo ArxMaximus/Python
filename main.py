@@ -935,7 +935,10 @@ d = {'c': 3, 'a': 1, 'b': 2, 'd': 4}
 #     v.update({*[x.__next__()]})
 
 # Вариант 4
-x = d.items().__iter__()
-v = dict(map(lambda i: x.__next__(), range(2)))
+# x = d.items().__iter__()
+# v = dict(map(lambda i: x.__next__(), range(2)))
+
+x = iter(d.items())
+v = dict(map(lambda i: next(x), range(2)))
 
 print(v)
