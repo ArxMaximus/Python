@@ -918,27 +918,173 @@
 
 # Вывести из словаря первые 2 элемента
 
-d = {'c': 3, 'a': 1, 'b': 2, 'd': 4}
+# d = {'c': 3, 'a': 1, 'b': 2, 'd': 4}
 
 # Вариант 1
 # v = {l[0]: l[1] for k, l in enumerate(d.items()) if k < 2}
 
 # Вариант 2
-# x = d.keys().__iter__()
-# y = d.values().__iter__()
-# v = {x.__next__(): y.__next__() for i in range(2)}
+# x = iter(d.keys())
+# y = iter(d.values())
+# v = {next(x): next(y) for i in range(2)}
 
 # Вариант 3
 # v = {}
-# x = d.items().__iter__()
+# x = iter(d.items())
 # for i in range(2):
-#     v.update({*[x.__next__()]})
+#     v.update({*[next(x)]})
 
 # Вариант 4
-# x = d.items().__iter__()
-# v = dict(map(lambda i: x.__next__(), range(2)))
+# x = iter(d.items())
+# v = dict(map(lambda i: next(x), range(2)))
+#
+# print(v)
 
-x = iter(d.items())
-v = dict(map(lambda i: next(x), range(2)))
+# str1 = 'Я изучаю Nython. Мне нравится Nython. Nython очень интересный язык программирования.'
+#
+#
+# def change_char_to_str(s, c_old, c_new):
+#     return ''.join(map(lambda x: c_new if x == c_old else x, s))
+#
+#
+# print(change_char_to_str(str1, 'N', 'P'))
 
-print(v)
+# name = 'Дмитрий'
+# age = 25
+# print(f'{name} {age}')
+
+# import math
+#
+# def cylinder(r, h):
+#     """
+#     Вычисляет площадь циллиндра.
+#
+#     Вычисляет площадь циллиндра на основании заданной высоты и радиуса основания
+#
+#     :param r: положительное число, радиус основания цилиндра
+#     :param h: положительное число, высота цилиндра
+#     :return: положительное число, площадь цилиндра
+#     """
+#     return 2 * math.pi * r * (r + h)
+#
+#
+# print(cylinder(2, 4))
+# print(cylinder.__doc__)
+
+# a = 122
+# b = 97
+#
+# if a > b:
+#     a, b = b, a
+#
+# for i in range(a, b + 1):
+#     print(chr(i))
+
+# from random import randint
+#
+# def generate_password():
+#     return ''.join(chr(randint(33, 126)) for i in range(randint(7, 10) + 1))
+#
+#
+# print(f'Ваш случайный пароль: {generate_password()}')
+
+# print(dir(''))
+
+# s = 'Hello world'
+#
+# s = s[s.find(' ') + 1:] + ' ' + s[:s.find(' ')]
+#
+# print(s)
+
+# print(''.join(s.split().reverse()))
+
+# s = 'ab12c59p7dq'
+# d = list(filter(lambda x: '0' <= x <= '9', s))
+# print(d)
+
+# print('https://www.python.org'.lstrip('/:thsp'))
+# print('py.$$$'.rstrip(';$.'))
+# print('https://www.python.orgw'.strip('/:thsporgw.'))
+
+# str1 = 'Я изучаю Nython. Мне нравится Nython. Nython очень интересный язык программирования.'
+#
+# print(str1.replace('Nython', 'Python'))
+
+# str1 = 'Замените в этой строке все появления буквы "о" на букву "О", кроме первого и последнего вхождения'
+#
+# print(str1[:str1.find('о') + 1] + str1[str1.find('о') + 1: str1.rfind('о')].replace('о', 'О') + str1[str1.rfind('о'):])
+
+# s = '-'
+# seq = ('a', 'b', 'c')
+# print(s.join(seq))
+#
+# print('-'.join('Строка разделенная пробелами'.split()))
+
+
+# a = input('-> ').split()
+# print(a)
+
+# a = input('ФИО: ').split()
+# print(f'{a[0]} {a[1][0]}. {a[2][0]}.')
+
+# import re
+#
+# s = 'Я ищу совпадения в 2023 году. И я их найду в 2 счёта.'
+# reg = r'\.'
+#
+# print(re.findall(reg, s))
+# print(re.search(reg, s))
+# print(re.match(reg, s))
+# print(re.split(reg, s))
+# print(re.sub(reg, '!', s))
+
+# s = 'Я ищу совпадения в 2023 году. И я их найду в 2 счёта. 9875'
+# reg = r'.[^2]'
+# print(re.findall(reg, s))
+# s = 'Час в 24-часовом формате от 00 до 23. 2021-06-15Т21:45. Минуты, в диапазоне от 00 до 59. 2021-06-15Т01:09'
+# reg = r'[0-2][0-9]:[0-6][0-9]'
+# print(re.findall(reg, s))
+
+# import re
+
+# d = '05-03-1987 # Дата рождения'
+#
+# print('Дата рождения:', re.sub('-', '.', re.sub(r'\s#.*', '', d)))
+
+# s = 'author=Пушкин А.С.; title = Евгений Онегин; price =200; year= 1831'
+#
+# print(dict(map(lambda x: re.split(r'\s*=\s*', x), re.findall(r'\w+\s*=[^;]+', s))))
+#
+
+# s = '+7 499 456-45-78, +74994564578, 7 (499) 456 45 78, 74994564578'
+# print(re.findall('\+?7\d{10}', s))
+
+# s = 'Я ищу совпадения в 2023 году. И я их найду в 2 счёта. 9875'
+#
+# reg = '^\w+\s\w+'
+#
+# print(re.findall(reg, s))
+
+# s = 'int = 4, float = 4.0, double = 8.0f'
+# reg = r'(?:int|float|double)\s*=\s*(?:\w+[.\w]*f?)'
+# print(re.findall(reg, s))
+
+# s = '127.0.0.1'
+# s = '192.168.255.255'
+#
+# reg = r'(?:\d{1,3}\.){3}\d{1,3}'
+# print(re.findall(reg, s))
+
+import re
+
+# mon = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+# reg = '(' + '|'.join(map(lambda x: '|'.join(str(i + 1).rjust(2, '0') + '-' + str(x[0] + 1).rjust(2, '0') for i in range(x[1])), enumerate(mon))) + ')-(\d\d\d\d)'
+# s = input('Введите дату в формате dd-mm-YYYY: ')
+# print(s)
+# print(re.findall(reg, s))
+
+s = 'yandex.com and yandex.ru'
+
+reg = r'([a-z0-9.-]{2,}\.[^\.\s]{2,})'
+
+print(re.sub(reg, r'http://\1', s))
