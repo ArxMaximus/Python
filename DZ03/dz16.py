@@ -1,5 +1,6 @@
 import re
 
+
 def verify(regexp, yes, no):
     for i in yes:
         if not re.match(regexp, i, re.X):
@@ -11,6 +12,7 @@ def verify(regexp, yes, no):
             return False
     return True
 
+
 if verify(r"""\+?\d\s*              # State code (maybe leaded by '+' or not)
         (\d{3}|                     # 3-digit city code
         (\(\d{3}\)))\s*             # OR (3-digit city code)
@@ -19,6 +21,6 @@ if verify(r"""\+?\d\s*              # State code (maybe leaded by '+' or not)
         ([-]?\d{2}[-]?\d{2}))$""",  # OR -XX-XX
        ['+7 499 456-45-78', '+74994564578', '7 (499) 456 45 78', '7 (499) 456-45-78'],          # Correct numbers
        ['+7 4994 56-45-78', '-74994564578', '7 (499 456 45 78', '7 (499) 456 45-78']):          # Incorrect numbers
-    print('Passed!')
+    print('\033[32mPassed!')
 else:
-    print('Error!')
+    print('\033[31mError!')
