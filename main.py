@@ -1075,7 +1075,7 @@
 # reg = r'(?:\d{1,3}\.){3}\d{1,3}'
 # print(re.findall(reg, s))
 
-import re
+# import re
 
 # mon = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 # reg = '(' + '|'.join(map(lambda x: '|'.join(str(i + 1).rjust(2, '0') + '-' + str(x[0] + 1).rjust(2, '0') for i in range(x[1])), enumerate(mon))) + ')-(\d\d\d\d)'
@@ -1083,8 +1083,57 @@ import re
 # print(s)
 # print(re.findall(reg, s))
 
-s = 'yandex.com and yandex.ru'
+# s = 'yandex.com and yandex.ru'
+#
+# reg = r'([a-z0-9.-]{2,}\.[^\.\s]{2,})'
+#
+# print(re.sub(reg, r'http://\1', s))
 
-reg = r'([a-z0-9.-]{2,}\.[^\.\s]{2,})'
+# names = ['Adam', ['Bob', ['Chet', 'Cat', ['Victor', 'Sergey', ['Olga', 'Helena']]], 'Bard', 'Bert'], 'Alex', ['Bea', 'Bill', ['Ivan', 'Petr', 'Sidor']], 'Ann']
+#
+#
+# def count_items(item_list):
+#     stack = []
+#     pos = 0
+#     level = 0
+#     maxlevel = 0
+#     count = 0
+#     pointer = item_list
+#     while not (pos == len(item_list) and level == 0):
+#         if isinstance(pointer[pos], list):
+#             stack.append(pos)
+#             stack.append(pointer)
+#             pointer = pointer[pos]
+#             pos = 0
+#             level += 1
+#             if level > maxlevel:
+#                 maxlevel = level
+#         else:
+#             count += 1
+#             pos += 1
+#             while pos == len(pointer) and level > 0:
+#                 pointer = stack.pop()
+#                 pos = stack.pop()
+#                 pos += 1
+#                 level -= 1
+#     return count, maxlevel
+#
+#
+# if __name__ == '__main__':
+#     print(names)
+#     print('\033[3m\033[34mElements count:\033[0m {}, \033[3m\033[34mmaximus nesting level:\033[0m {}'.format(*count_items(names)))
+#
 
-print(re.sub(reg, r'http://\1', s))
+from functools import reduce
+
+names = ['Adam', ['Bob', ['Chet', 'Cat', ['Victor', 'Sergey', ['Olga', 'Helena']]], 'Bard', 'Bert'], 'Alex', ['Bea', 'Bill', ['Ivan', 'Petr', 'Sidor']], 'Ann']
+
+def union(item_list):
+    if isinstance(item_list, list):
+        return list(reduce(lambda val, item: val.extend(union(item)) or val, item_list, []))
+    else:
+        return [item_list]
+
+
+if __name__ == '__main__':
+    print(union(names))
