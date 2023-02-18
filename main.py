@@ -1124,16 +1124,105 @@
 #     print('\033[3m\033[34mElements count:\033[0m {}, \033[3m\033[34mmaximus nesting level:\033[0m {}'.format(*count_items(names)))
 #
 
-from functools import reduce
+# from functools import reduce
+#
+# names = ['Adam', ['Bob', ['Chet', 'Cat', ['Victor', 'Sergey', ['Olga', 'Helena']]], 'Bard', 'Bert'], 'Alex', ['Bea', 'Bill', ['Ivan', 'Petr', 'Sidor']], 'Ann']
+#
+# def union(item_list):
+#     if isinstance(item_list, list):
+#         return list(reduce(lambda val, item: val.extend(union(item)) or val, item_list, []))
+#     else:
+#         return [item_list]
+#
+#
+# if __name__ == '__main__':
+#     print(union(names))
 
-names = ['Adam', ['Bob', ['Chet', 'Cat', ['Victor', 'Sergey', ['Olga', 'Helena']]], 'Bard', 'Bert'], 'Alex', ['Bea', 'Bill', ['Ivan', 'Petr', 'Sidor']], 'Ann']
 
-def union(item_list):
-    if isinstance(item_list, list):
-        return list(reduce(lambda val, item: val.extend(union(item)) or val, item_list, []))
-    else:
-        return [item_list]
+# f = open('test.txt')
+# print(len(f.readlines()))
+# print(len([*f]))
+#
+# f.close()
+
+# f = open('xyz.txt', 'w')
+# lst = [str(i ** 5) for i in range(1, 20)]
+# print(lst)
+# f.write('\t'.join([*lst]))
+# f.close()
+
+# my_file = open('text2.txt', 'w')
+# my_file.write('Замена строки в текстовом файле;\nизменить строку в списке;\nзаписать список в файл;')
+# my_file.close()
+#
+# my_file = open('text2.txt', 'r')
+# lst = my_file.readlines()
+# my_file.close()
+#
+# print(lst)
+#
+# num = int(input('Номер строки для удаления: '))
+# lst.pop(num - 1)
+# print(lst)
+#
+# my_file = open('text2.txt', 'w')
+# my_file.write(''.join([*lst]))
+# my_file.close()
+
+# my_file = open('text.txt', 'r')
+# print(my_file.read(3))
+# print(my_file.tell())
+# print(my_file.seek(1))
+# print(my_file.read())
+# my_file.close()
+
+# with open('text.txt', 'w+') as f:
+#     print(f.write('1234567890'))
+#
+# with open('text.txt', 'r+') as f:
+#     print(f.write('1234567890'))
+
+# file_name = 'res.txt'
+# lst = [4.5, 2.8, 3.9, 1.0, 0.3, 4.33, 7.77]
+#
+# with open(file_name, 'w+') as my_file:
+#     my_file.write('\t'.join(map(str, lst)))
+#
+# with open(file_name, 'r+') as my_file:
+#     new_lst = my_file.read().split('\t')
+#     print(len(new_lst))
+#     print(f'Sum = {sum(map(float, new_lst))}')
+
+# file_name = 'res.txt'
+#
+# my_str = 'Работа с файлами реализуется как правило с применением файловых систем, обеспеч ивающих организацию работы с файлами и абстракцию над носителями информации.'
+#
+# with open(file_name, 'w+') as my_file:
+#     my_file.write(my_str)
+#
+# def longest_word(file):
+#     with open(file, 'r+') as my_file:
+#         new_lst = my_file.read().split()
+#         out_list = list(filter(lambda x: len(x) == len(max(new_lst, key=len)), new_lst))
+#         if len(out_list) == 1:
+#             return out_list[0]
+#         return out_list
+#
+# print(longest_word(file_name))
 
 
-if __name__ == '__main__':
-    print(union(names))
+# text = 'String N1\nString N2\nString N3\nString N4\nString N5\nString N6\nString N7\nString N8\nString N9\nString N10'
+#
+# with open('one.txt', 'w') as my_file:
+#     my_file.write(text)
+
+# read_file = 'one.txt'
+# write_file = 'two.txt'
+#
+# with open(read_file, 'r') as fr, open(write_file, 'w') as fw:
+#     for line in fr:
+#         fw.write(line.replace('String', 'Line -'))
+
+import os
+
+print()
