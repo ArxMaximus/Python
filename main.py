@@ -1223,6 +1223,46 @@
 #     for line in fr:
 #         fw.write(line.replace('String', 'Line -'))
 
-import os
+# import os
+#
+# print()
 
-print()
+# from functools import reduce
+# from random import randint
+#
+#
+# def list_search(in_list):
+#     return reduce(lambda s, i: s[:i] + [s[i] + 1] + s[i + 1:], in_list, [0] * 11)
+#
+#
+# print((lambda x: f'{x}\n{(chr(10) + chr(13)).join(map(lambda i: str(i[0]).rjust(2) + ": " + str(i[1]), enumerate(list_search(x))))}')([randint(0, 10) for i in range(20)]))
+
+# import os
+# import random
+
+# - w.txt
+# - F1:
+#     - f11.txt
+#     - f12.txt
+#     - f13.txt
+# - F2:
+#     - F21:
+#         - f211.txt
+#         - f212.txt
+
+# dirs = [r'Work\F1', r'Work\F2\F21']
+# for d in dirs:
+#     os.makedirs(d)
+
+# files = {
+#     'Work': ['w.txt'],
+#     r'Work\F1': ['f11.txt', 'f12.txt', 'f13.txt'],
+#     r'Work\F2\F21': ['f211.txt', 'f212.txt']
+# }
+#
+# for d, file in files.items():
+#     for f in file:
+#         file_path = os.path.join(d, f)
+#         with open(file_path, 'w') as work_file:
+#             work_file.write(''.join(''))
+
