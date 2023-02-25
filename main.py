@@ -1266,3 +1266,36 @@
 #         with open(file_path, 'w') as work_file:
 #             work_file.write(''.join(''))
 
+# def binary_search_rec(s, item, l_pos=0):
+#     if len(s) < 2:
+#         if s[0] == item:
+#             return l_pos
+#         else:
+#             return -1
+#     if item >= s[len(s) // 2]:
+#         return binary_search_rec(s[len(s) // 2:], item, l_pos + len(s) // 2)
+#     else:
+#         return binary_search_rec(s[:len(s) // 2], item, l_pos)
+#
+#
+# def binary_search_iter(s, item):
+#     left = 0
+#     right = len(s) - 1
+#     while left < right - 1:
+#         if item > s[(left + right) // 2]:
+#             left = (left + right) // 2
+#         else:
+#             right = (left + right) // 2
+#     if s[left] == item:
+#         return left
+#     elif s[right] == item:
+#         return right
+#     else:
+#         return -1
+#
+#
+# lst = [1, 5, 6, 8, 12, 15, 20, 33, 48, 50, 51, 74, 89]
+# num = 6
+# print(binary_search_rec(lst, num))
+# print(binary_search_iter(lst, num))
+
